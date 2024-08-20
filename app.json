@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "omraneApp",
+    "name": "Al Omrane",
     "slug": "omraneApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/al-omrane.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/al-omrane.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,18 +15,20 @@
       "supportsTablet": true,
       "config": {
         "googleMapsApiKey": "AIzaSyCvceydOKB4qVxCRfpSozzSQFBK4VxKH60"
-      }
+      },
+      "bundleIdentifier": "com.zakaria69.omraneApp"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/al-omrane.png",
         "backgroundColor": "#ffffff"
       },
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyCvceydOKB4qVxCRfpSozzSQFBK4VxKH60"
         }
-      }
+      },
+      "package": "com.zakaria69.omraneApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -37,6 +39,11 @@
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c725cec9-d707-4f99-8d5f-217271029ffd"
+      }
+    }
   }
 }

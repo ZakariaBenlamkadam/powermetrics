@@ -19,6 +19,7 @@
       "bundleIdentifier": "com.zakaria69.omraneApp"
     },
     "android": {
+      
       "adaptiveIcon": {
         "foregroundImage": "./assets/al-omrane.png",
         "backgroundColor": "#ffffff"

@@ -5,7 +5,7 @@ import { TouchableOpacity, Text, View, SafeAreaView, Image } from 'react-native'
 import { useTranslation } from 'react-i18next'; // Import the useTranslation hook
 
 const Main = ({ navigation }) => {
-  const { t } = useTranslation(); // Get the translation function
+  const { t } = useTranslation(); 
 
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
@@ -18,7 +18,7 @@ const Main = ({ navigation }) => {
         />
       </View>
       <TouchableOpacity
-        onPress={() => navigation.navigate('LoginScreen')}
+        onPress={() => navigation.navigate('DrawerNavigator')}
         style={{ backgroundColor: '#28a745', padding: 20, width: '90%', borderRadius: 5, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 }}
       >
         <Text style={{ color: 'white', fontSize: 18, width: 200, height: 50, marginTop: 20, fontWeight: 'bold' }}>

@@ -31,6 +31,9 @@ export const en = {
     'Create an Account': 'Create an Account',
     showDetails: 'Show Details of {{city}}',
     mainMap: 'Main Map',
-    Username: 'Username'
+    Username: 'Username',
+    'It is better to rotate your phone for better visualization.': 'It is better to rotate your phone for better visualization.',
+    'Please wait until the visualization appears, as it may take some time.' :'Please wait until the visualization appears, as it may take some time.'
 
+    
 };

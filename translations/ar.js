@@ -31,5 +31,8 @@ export const ar = {
     'Create an Account': 'إنشاء حساب',
     showDetails: 'عرض تفاصيل {{city}}',
     mainMap: 'الخريطة الرئيسية',
-    Username: 'اسم المستخدم'
+    Username: 'اسم المستخدم',
+    'It is better to rotate your phone for better visualization.': 'من الأفضل تدوير هاتفك لرؤية أفضل.',
+    'Please wait until the visualization appears, as it may take some time.' :'يرجى الانتظار حتى ظهور التقرير، فقد يستغرق الأمر بعض الوقت.'
+
   };

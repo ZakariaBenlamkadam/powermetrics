@@ -31,8 +31,9 @@ export const fr = {
     'Create an Account': 'Créer un compte',
     showDetails: 'Afficher les détails de {{city}}',
     mainMap: 'Carte principale',
-    Username: 'Nom d\'utilisateur'
-
+    Username: 'Nom d\'utilisateur',
+    'It is better to rotate your phone for better visualization.': 'Il est préférable de faire tourner votre téléphone pour une meilleure visualisation.',
+    'Please wait until the visualization appears, as it may take some time.' :'Veuillez patienter jusqu\'à ce que la visualisation apparaisse, car cela peut prendre un certain temps.'
 };
 
  

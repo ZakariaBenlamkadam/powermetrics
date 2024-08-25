@@ -42,15 +42,11 @@ const LoginScreen = ({ navigation }) => {
             placeholderTextColor="#777"
             onChangeText={(text) => setPassword(text)}
           />
-          <TouchableOpacity onPress={() => Alert.alert(t('Forgot Password'))} style={styles.forgotPasswordContainer}>
-            <Text style={styles.forgotPasswordText}>{t('Forgot password?')}</Text>
-          </TouchableOpacity>
+          
           <TouchableOpacity onPress={handleLogin} style={styles.loginButton}>
             <Text style={styles.loginButtonText}>{t('Log in')}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => Alert.alert(t('Create an Account'))} style={styles.createAccountButton}>
-            <Text style={styles.createAccountButtonText}>{t('Create an account')}</Text>
-          </TouchableOpacity>
+          
         </View>
       </SafeAreaView>
     </ImageBackground>

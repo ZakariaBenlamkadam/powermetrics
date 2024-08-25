@@ -1,9 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Modal, SafeAreaView, View, StyleSheet, Text, Button, TouchableOpacity, Dimensions, Alert, ImageBackground } from 'react-native';
 import { WebView } from 'react-native-webview';
-import * as Print from 'expo-print';
-import * as FileSystem from 'expo-file-system';
-import * as Sharing from 'expo-sharing';
+
 import { useTranslation } from 'react-i18next';
 
 const { width, height } = Dimensions.get('window');
@@ -28,40 +26,7 @@ const Trends = () => {
   const isLandscape = width > height;
   const webViewUri = getTrendsWebViewUri();
 
-  const generatePDF = async () => {
-    try {
-      const htmlContent = `
-        <html>
-          <body>
-            <h1>${t('Sample HTML for PDF')}</h1>
-            <iframe src="${webViewUri}" style="width:100%; height:500px;" frameborder="0"></iframe>
-          </body>
-        </html>
-      `;
-
-      const { uri: pdfUri } = await Print.printToFileAsync({ html: htmlContent });
-      console.log('Generated PDF URI:', pdfUri);
-
-      const downloadsFolder = FileSystem.documentDirectory + 'GeneratedPDF.pdf';
-      await FileSystem.moveAsync({
-        from: pdfUri,
-        to: downloadsFolder,
-      });
-
-      if (await Sharing.isAvailableAsync()) {
-        await Sharing.shareAsync(downloadsFolder);
-      } else {
-        Alert.alert(t('Sharing not available'), t('Sharing is not available on this device.'));
-      }
-
-      Alert.alert(t('PDF Generated'), `${t('File saved to')} ${downloadsFolder}.`);
-      console.log('PDF saved to:', downloadsFolder);
-
-    } catch (error) {
-      Alert.alert(t('Error'), t('Failed to generate or save the PDF'));
-      console.error(error);
-    }
-  };
+  
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -69,7 +34,6 @@ const Trends = () => {
         source={require('../assets/back.png')} 
         style={styles.backgroundImage}
       >
-        {/* Overlay with white background and 50% opacity */}
         <View style={styles.overlay}>
           <View style={styles.header}>
             <Text style={styles.sectionTitle}>{t('Trends')}</Text>
@@ -91,7 +55,7 @@ const Trends = () => {
                       domStorageEnabled={true}
                       userAgent="Mozilla/5.0 (Linux; Android 10; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36"
                     />
-                    <Button title={t('Generate PDF')} onPress={generatePDF} />
+                    
                   </View>
                 ) : (
                   <Text>{t('No data available for the report.')}</Text>

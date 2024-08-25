@@ -3,34 +3,36 @@ import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Alert, Text, Vie
 import { useTranslation } from 'react-i18next';
 
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { t } = useTranslation();
 
   const handleLogin = () => {
-    if (email === '' || password === '') {
-      Alert.alert(t('Error'), t('Please fill in all fields.'));
-    } else {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'DrawerNavigator' }],
-      });
-    }
-  };
+  if (username === '' || password === '') {
+    Alert.alert(t('Error'), t('Please fill in all fields.'));
+  } else if (username === 'Admin' && password === 'Admin') {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'DrawerNavigator' }],
+    });
+  } else {
+    Alert.alert(t('Error'), t('Invalid username or password.'));
+  }
+};
 
   return (
-    <ImageBackground source={require('../assets/back copy.png')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../assets/back.png')} style={styles.backgroundImage}>
       <SafeAreaView style={styles.container}>
         <View style={styles.innerContainer}>
           <Image source={require('../assets/al-omrane.png')} style={styles.logo} />
           <Text style={styles.header}>{t('Sign in to your account')}</Text>
           <TextInput
             style={styles.input}
-            placeholder={t('Email')}
-            keyboardType="email-address"
-            value={email}
+            placeholder={t('Username')}
+            keyboardType="username"
+            value={username}
             placeholderTextColor="#777"
-            onChangeText={(text) => setEmail(text)}
+            onChangeText={(text) => setUsername(text)}
           />
           <TextInput
             style={styles.input}

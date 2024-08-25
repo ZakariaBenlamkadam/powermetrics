@@ -31,7 +31,6 @@ export const en = {
     'Create an Account': 'Create an Account',
     showDetails: 'Show Details of {{city}}',
     mainMap: 'Main Map',
+    Username: 'Username'
 
-
-    // Add more keys and translations
 };

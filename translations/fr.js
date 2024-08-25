@@ -31,7 +31,7 @@ export const fr = {
     'Create an Account': 'Créer un compte',
     showDetails: 'Afficher les détails de {{city}}',
     mainMap: 'Carte principale',
-
+    Username: 'Nom d\'utilisateur'
 
 };
 

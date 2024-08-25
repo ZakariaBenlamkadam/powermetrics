@@ -31,6 +31,5 @@ export const ar = {
     'Create an Account': 'إنشاء حساب',
     showDetails: 'عرض تفاصيل {{city}}',
     mainMap: 'الخريطة الرئيسية',
-
-    // Add more keys and translations
+    Username: 'اسم المستخدم'
   };

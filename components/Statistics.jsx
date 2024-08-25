@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, SafeAreaView, View, StyleSheet, Text, Button, TouchableOpacity, Dimensions } from 'react-native';
+import { Modal, SafeAreaView, View, StyleSheet, Text, Button, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { useTranslation } from 'react-i18next';
 
@@ -10,7 +10,7 @@ const getStatisticsWebViewUri = () => {
 };
 
 const Statistics = () => {
-  const { t } = useTranslation();  // Initialize the useTranslation hook
+  const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const openModal = () => {
@@ -26,33 +26,42 @@ const Statistics = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.sectionTitle}>{t('Global visualization')}</Text>
-        <Button title={t('View Report')} onPress={openModal} />
-      </View>
-
-      <Modal visible={isModalVisible} animationType="slide" transparent={true}>
-        <View style={styles.modalContainer}>
-          <View style={styles.fullScreenModalContent}>
-            {webViewUri ? (
-              <View style={styles.fullScreenWebViewContainer}>
-                <WebView
-                  source={{ uri: webViewUri }}
-                  style={styles.webView}
-                  javaScriptEnabled={true}
-                  domStorageEnabled={true}
-                  userAgent="Mozilla/5.0 (Linux; Android 10; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36"
-                />
-              </View>
-            ) : (
-              <Text>{t('No data available for the report.')}</Text>
-            )}
-            <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
-              <Text style={styles.closeButtonText}>X</Text>
-            </TouchableOpacity>
+      <ImageBackground
+        source={require('../assets/back.png')} 
+        style={styles.backgroundImage}
+      >
+        <View style={styles.overlay}>
+          <View style={styles.header}>
+            <Text style={styles.sectionTitle}>{t('Global visualization')}</Text>
+            <Button title={t('View Report')} onPress={openModal} />
           </View>
+          <Text style={styles.infoText}>{t('It is better to rotate your phone for better visualization.')}</Text>
+          <Text style={styles.infoText}>{t('Please wait until the visualization appears, as it may take some time.')}</Text>
+
+          <Modal visible={isModalVisible} animationType="slide" transparent={true}>
+            <View style={styles.modalContainer}>
+              <View style={styles.fullScreenModalContent}>
+                {webViewUri ? (
+                  <View style={styles.fullScreenWebViewContainer}>
+                    <WebView
+                      source={{ uri: webViewUri }}
+                      style={styles.webView}
+                      javaScriptEnabled={true}
+                      domStorageEnabled={true}
+                      userAgent="Mozilla/5.0 (Linux; Android 10; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36"
+                    />
+                  </View>
+                ) : (
+                  <Text>{t('No data available for the report.')}</Text>
+                )}
+                <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
+                  <Text style={styles.closeButtonText}>X</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>
         </View>
-      </Modal>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -63,9 +72,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  backgroundImage: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+  },
   header: {
     position: 'absolute',
-    top: 40,
+    top: 240,
     width: '100%',
     paddingHorizontal: 20,
     flexDirection: 'row',
@@ -76,11 +98,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333333',
   },
+  infoText: {
+    fontSize: 14,
+    color: '#666666',
+    textAlign: 'center',
+    marginTop: 10,
+  },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
   fullScreenModalContent: {
     width: '100%',

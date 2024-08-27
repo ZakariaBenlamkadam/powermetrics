@@ -7,7 +7,7 @@
     "icon": "./assets/al-omrane3.jpg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/al-omrane3.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

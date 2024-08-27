@@ -33,7 +33,8 @@ export const en = {
     mainMap: 'Main Map',
     Username: 'Username',
     'It is better to rotate your phone for better visualization.': 'It is better to rotate your phone for better visualization.',
-    'Please wait until the visualization appears, as it may take some time.' :'Please wait until the visualization appears, as it may take some time.'
-
+    'Please wait until the visualization appears, as it may take some time.' :'Please wait until the visualization appears, as it may take some time.',
+    chooseLanguage: 'Choose language',
+    'Invalid username or password.':'Invalid username or password.'
     
 };

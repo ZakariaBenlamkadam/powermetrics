@@ -68,11 +68,7 @@ const DrawerNavigator = () => {
         component={TabNavigator} 
         options={{ title: t('AlOmrane') }} 
       />
-      <Drawer.Screen 
-        name="HomeScreen" 
-        component={HomeScreen} 
-        options={{ title: t('Home') }} 
-      />
+      
       <Drawer.Screen 
         name="Settings" 
         component={SettingsScreen} 

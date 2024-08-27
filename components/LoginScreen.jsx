@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Alert, Text, View, Image, ImageBackground, Modal, TouchableWithoutFeedback } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from '../src/contexts/ThemeContext'; // Import ThemeContext
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const { t, i18n } = useTranslation();
+  const { theme, toggleTheme } = useContext(ThemeContext); // Get theme and toggle function from context
 
   const handleLogin = () => {
     if (username === '' || password === '') {
@@ -29,15 +31,26 @@ const LoginScreen = ({ navigation }) => {
   const handleOutsidePress = () => {
     setModalVisible(false);
   };
+  const textColor = theme === 'light' ? '#000' : '#fff';
+  const backgroundColor = theme === 'light' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)';
+  const inputBackgroundColor = theme === 'light' ? '#f9f9f9' : '#333';
+  const inputBorderColor = theme === 'light' ? '#444' : '#bbb';
 
   return (
     <ImageBackground source={require('../assets/back.png')} style={styles.backgroundImage}>
+      {theme === 'dark' && <View style={styles.darkOverlay} />}
       <SafeAreaView style={styles.container}>
-        <View style={styles.languageIconContainer}>
+        <View style={styles.headerIconsContainer}>
           <TouchableOpacity onPress={() => setModalVisible(true)}>
             <Image
-              source={require('../assets/translate.png')}
+              source={theme === 'light' ? require('../assets/translate.png') : require('../assets/translate light.png')}
               style={styles.languageIcon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={toggleTheme}>
+            <Image
+              source={theme === 'light' ? require('../assets/night-mode.png') : require('../assets/light-mode.png')}
+              style={styles.themeIcon}
             />
           </TouchableOpacity>
         </View>
@@ -75,30 +88,30 @@ const LoginScreen = ({ navigation }) => {
               </TouchableWithoutFeedback>
             </View>
           </TouchableWithoutFeedback>
-
         </Modal>
 
         <View style={styles.innerContainer}>
-          <Image source={require('../assets/al-omrane.png')} style={styles.logo} />
-          <Text style={styles.header}>{t('Sign in to your account')}</Text>
+          <Image source={theme === 'light' ? require('../assets/al-omrane.png') : require('../assets/al-omrane dark.png')} style={styles.logo} />
+          <Text style={[styles.header, { color: 'black' }]}>{t('Sign in to your account')}</Text>
+
           <TextInput
-            style={styles.input}
+            style={[styles.input, { backgroundColor: inputBackgroundColor, borderColor: inputBorderColor, color: textColor }]}
             placeholder={t('Username')}
             keyboardType="default"
             value={username}
-            placeholderTextColor="#777"
+            placeholderTextColor={theme === 'light' ? '#777' : '#aaa'}
             onChangeText={(text) => setUsername(text)}
           />
           <TextInput
-            style={styles.input}
+            style={[styles.input, { backgroundColor: inputBackgroundColor, borderColor: inputBorderColor, color: textColor }]}
             placeholder={t('Password')}
             secureTextEntry
             value={password}
-            placeholderTextColor="#777"
+            placeholderTextColor={theme === 'light' ? '#777' : '#aaa'}
             onChangeText={(text) => setPassword(text)}
           />
-          <TouchableOpacity onPress={handleLogin} style={styles.loginButton}>
-            <Text style={styles.loginButtonText}>{t('Log in')}</Text>
+          <TouchableOpacity onPress={handleLogin} style={{backgroundColor: theme === 'light' ? '#28a745':'#265c66' , paddingVertical: 10,borderRadius: 5, alignItems: 'center',NmarginBottom: 20}}>
+            <Text style={{color: theme === 'light' ? 'white': '#aaa',fontWeight: 'bold',}}>{t('Log in')}</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -111,17 +124,27 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
   },
+  darkOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  languageIconContainer: {
+  headerIconsContainer: {
     position: 'absolute',
     top: 60,
     right: 20,
+    flexDirection: 'row',
   },
   languageIcon: {
+    width: 30,
+    height: 30,
+    marginRight: 10,
+  },
+  themeIcon: {
     width: 30,
     height: 30,
   },
@@ -179,13 +202,7 @@ const styles = StyleSheet.create({
     color: '#000',
     backgroundColor: '#f9f9f9',
   },
-  loginButton: {
-    backgroundColor: '#28a745',
-    paddingVertical: 10,
-    borderRadius: 5,
-    alignItems: 'center',
-    marginBottom: 20,
-  },
+  
   loginButtonText: {
     color: '#fff',
     fontWeight: 'bold',

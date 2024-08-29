@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Modal, SafeAreaView, View, StyleSheet, Text, Button, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from '../src/contexts/ThemeContext'; // Import ThemeContext
 
 const { width, height } = Dimensions.get('window');
 
@@ -12,6 +13,7 @@ const getStatisticsWebViewUri = () => {
 const Statistics = () => {
   const { t } = useTranslation();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const { theme } = useContext(ThemeContext); // Get the current theme from the context
 
   const openModal = () => {
     setIsModalVisible(true);
@@ -27,20 +29,20 @@ const Statistics = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
-        source={require('../assets/back.png')} 
+        source={require('../assets/back.png')}
         style={styles.backgroundImage}
       >
-        <View style={styles.overlay}>
+        <View style={[styles.overlay, { backgroundColor: theme === 'light' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)' }]}>
           <View style={styles.header}>
-            <Text style={styles.sectionTitle}>{t('Global visualization')}</Text>
+            <Text style={[styles.sectionTitle, { color: theme === 'light' ? '#333333' : '#ffffff' }]}>{t('Global visualization')}</Text>
             <Button title={t('View Report')} onPress={openModal} />
           </View>
-          <Text style={styles.infoText}>{t('It is better to rotate your phone for better visualization.')}</Text>
-          <Text style={styles.infoText}>{t('Please wait until the visualization appears, as it may take some time.')}</Text>
+          <Text style={[styles.infoText, { color: theme === 'light' ? '#666666' : '#cccccc' }]}>{t('It is better to rotate your phone for better visualization.')}</Text>
+          <Text style={[styles.infoText, { color: theme === 'light' ? '#666666' : '#cccccc' }]}>{t('Please wait until the visualization appears, as it may take some time.')}</Text>
 
           <Modal visible={isModalVisible} animationType="slide" transparent={true}>
             <View style={styles.modalContainer}>
-              <View style={styles.fullScreenModalContent}>
+              <View style={[styles.fullScreenModalContent, { backgroundColor: theme === 'light' ? '#ffffff' : '#333333' }]}>
                 {webViewUri ? (
                   <View style={styles.fullScreenWebViewContainer}>
                     <WebView
@@ -52,10 +54,10 @@ const Statistics = () => {
                     />
                   </View>
                 ) : (
-                  <Text>{t('No data available for the report.')}</Text>
+                  <Text style={{ color: theme === 'light' ? '#000' : '#fff' }}>{t('No data available for the report.')}</Text>
                 )}
-                <TouchableOpacity style={styles.closeButton} onPress={closeModal}>
-                  <Text style={styles.closeButtonText}>X</Text>
+                <TouchableOpacity style={[styles.closeButton, { backgroundColor: theme === 'light' ? '#fff' : '#555' }]} onPress={closeModal}>
+                  <Text style={[styles.closeButtonText, { color: theme === 'light' ? '#000' : '#fff' }]}>X</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -73,15 +75,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   backgroundImage: {
-    width:'100%',
-    height:'100%',
+    width: '100%',
+    height: '100%',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)', 
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
@@ -98,11 +99,9 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333333',
   },
   infoText: {
     fontSize: 14,
-    color: '#666666',
     textAlign: 'center',
     marginTop: 10,
   },
@@ -115,7 +114,6 @@ const styles = StyleSheet.create({
   fullScreenModalContent: {
     width: '100%',
     height: '100%',
-    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -130,12 +128,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     right: 20,
-    backgroundColor: 'white',
     padding: 10,
     borderRadius: 20,
   },
   closeButtonText: {
-    color: 'black',
     fontSize: 18,
   },
 });

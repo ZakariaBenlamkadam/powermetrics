@@ -1,27 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
 import Statistics from './Statistics';
 import MyMapComponent from './MyMapComponent';
 import Trends from './Trends';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { ThemeContext } from '../src/contexts/ThemeContext'; // Import ThemeContext
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
+  const { theme } = useContext(ThemeContext); // Get the current theme from context
+
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#2E8B57', 
+          backgroundColor: theme === 'light' ? '#2E8B57' : '#333', // Green for light theme, dark grey for dark theme
         },
-        tabBarActiveTintColor: 'black', 
-        tabBarInactiveTintColor: 'white', 
+        tabBarActiveTintColor: theme === 'light' ? 'black' : 'white', // Black for light theme, white for dark theme
+        tabBarInactiveTintColor: theme === 'light' ? 'white' : '#aaa', // White for light theme, light grey for dark theme
       }}
     >
-      
       <Tab.Screen 
         name="Map" 
         component={MyMapComponent}

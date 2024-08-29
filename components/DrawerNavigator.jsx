@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createDrawerNavigator, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import TabNavigator from './TabNavigator'; 
-import HomeScreen from './HomeScreen';
 import SettingsScreen from './SettingsScreen'; 
 import { StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from '../src/contexts/ThemeContext'; // Import ThemeContext
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
   const { t } = useTranslation();
   const navigation = useNavigation();
+  const { theme } = useContext(ThemeContext); 
 
   const handleLogout = () => {
     navigation.reset({
@@ -21,17 +22,18 @@ const DrawerNavigator = () => {
   };
 
   const CustomDrawerContent = (props) => (
-    <View style={styles.drawerContent}>
-      <Text style={styles.drawerTitle}>{t('Menu')}</Text>
+    <View style={[styles.drawerContent, { backgroundColor: theme === 'light' ? '#fff' : '#333' }]}>
+      <Text style={[styles.drawerTitle, { color: theme === 'light' ? '#000' : '#fff' }]}>{t('Menu')}</Text>
       <DrawerItemList {...props} />
-      <View style={styles.bottomDrawerSection}>
+      <View style={[styles.bottomDrawerSection, { borderTopColor: theme === 'light' ? '#f4f4f4' : '#555' }]}>
         <DrawerItem
           label={t('settings')}
+          labelStyle={{ color: theme === 'light' ? '#000' : '#fff' }}
           onPress={() => props.navigation.navigate('Settings')}
         />
         <DrawerItem
           label={t('Logout')}
-          labelStyle={styles.drawerItemText}
+          labelStyle={{ color: theme === 'light' ? '#000' : '#fff' }}
           onPress={handleLogout}
         />
       </View>
@@ -42,21 +44,22 @@ const DrawerNavigator = () => {
     <Drawer.Navigator
       screenOptions={{
         drawerStyle: {
-          backgroundColor: '#fff',
+          backgroundColor: theme === 'light' ? '#fff' : '#333',
           width: 240,
         },
         drawerLabelStyle: {
           fontSize: 18,
+          color: theme === 'light' ? '#000' : '#fff',
         },
         drawerActiveTintColor: '#e91e63',
-        drawerInactiveTintColor: '#000',
+        drawerInactiveTintColor: theme === 'light' ? '#000' : '#fff',
         drawerItemStyle: {
           marginVertical: 1,
         },
         headerStyle: {
-          backgroundColor: 'white', 
+          backgroundColor: theme === 'light' ? '#fff' : '#333',
         },
-        headerTintColor: '#000',
+        headerTintColor: theme === 'light' ? '#000' : '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
         },
@@ -93,7 +96,6 @@ const styles = StyleSheet.create({
   },
   bottomDrawerSection: {
     marginTop: 'auto',
-    borderTopColor: '#f4f4f4',
     borderTopWidth: 1,
     paddingVertical: 5,
   },

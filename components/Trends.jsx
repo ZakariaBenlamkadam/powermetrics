@@ -37,12 +37,14 @@ const Trends = () => {
         style={styles.backgroundImage}
       >
         <View style={[styles.overlay, { backgroundColor: theme === 'light' ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)' }]}>
-          <View style={styles.header}>
-            <Text style={[styles.sectionTitle, { color: theme === 'light' ? '#333333' : '#ffffff' }]}>{t('Trends')}</Text>
-            <Button title={t('View Report')} onPress={openModal} />
+          <View style={styles.content}>
+            <View style={styles.header}>
+              <Text style={[styles.sectionTitle, { color: theme === 'light' ? '#333333' : '#ffffff' }]}>{t('Trends')}</Text>
+              <Button title={t('View Report')} onPress={openModal} />
+            </View>
+            <Text style={[styles.infoText, { color: theme === 'light' ? '#666666' : '#cccccc' }]}>{t('It is better to rotate your phone for better visualization.')}</Text>
+            <Text style={[styles.infoText, { color: theme === 'light' ? '#666666' : '#cccccc' }]}>{t('Please wait until the visualization appears, as it may take some time.')}</Text>
           </View>
-          <Text style={[styles.infoText, { color: theme === 'light' ? '#666666' : '#cccccc' }]}>{t('It is better to rotate your phone for better visualization.')}</Text>
-          <Text style={[styles.infoText, { color: theme === 'light' ? '#666666' : '#cccccc' }]}>{t('Please wait until the visualization appears, as it may take some time.')}</Text>
 
           <Modal visible={isModalVisible} animationType="slide" transparent={true}>
             <View style={styles.modalContainer}>
@@ -84,18 +86,21 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     width: '100%',
     height: '100%',
   },
-  header: {
-    position: 'absolute',
-    top: 240,
-    width: '100%',
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: 20,
+  },
+  header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 20,
   },
   sectionTitle: {
     fontSize: 20,

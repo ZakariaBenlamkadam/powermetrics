@@ -5,16 +5,16 @@ import { Ionicons } from '@expo/vector-icons';
 
 const getWebViewUri = (cityName) => {
   const uris = {
-    Rabat: "https://app.powerbi.com/reportEmbed?reportId=342e2df2-7bde-4236-b7ba-f99a344f0c55&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false",
-    Casablanca: "https://app.powerbi.com/reportEmbed?reportId=4e677a49-31b4-4b50-b6d3-62ea822a8785&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false",
-    AlJanoub: "https://app.powerbi.com/reportEmbed?reportId=8bdb5de8-ab09-49d8-a0c5-e3b47779ef36&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false",
-    Sous_Massa: "https://app.powerbi.com/reportEmbed?reportId=edbc874c-adc0-48d0-a50e-f469d2e2c3c3&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false",
-    BéniMellal_Kénifra: "https://app.powerbi.com/reportEmbed?reportId=76349dbc-32de-49b5-94d6-72182e3bb87c&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false",
-    Oriental: "https://app.powerbi.com/reportEmbed?reportId=dc0fa74b-8cfe-4155-a06b-92f44233a4c6&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false",
-    Deraa_Tafilalt: "https://app.powerbi.com/reportEmbed?reportId=259229a2-4f08-47be-addf-0635c4831887&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false",
-    Tangier_Tetouan_Alhoseima: "https://app.powerbi.com/reportEmbed?reportId=312e89dc-1305-4d4d-9664-51bf7c841c49&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false",
-    Fes_Meknes: "https://app.powerbi.com/reportEmbed?reportId=8d14c454-38e3-4b23-8b0b-60dff5fe9855&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false",
-    Marrakech: "https://app.powerbi.com/reportEmbed?reportId=d7c3b2f9-a38c-40a2-a18e-d44e65b80a50&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false"
+    Rabat: "https://app.powerbi.com/reportEmbed?reportId=45b9d0ca-c98c-4019-8560-092e8333529f&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false",
+    Casablanca: "https://app.powerbi.com/reportEmbed?reportId=793fdeb4-52fb-41cc-aac8-3cd7e694a13d&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false",
+    AlJanoub: "https://app.powerbi.com/reportEmbed?reportId=09f7638f-685d-4e86-80e4-0269b9029f69&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false",
+    Sous_Massa: "https://app.powerbi.com/reportEmbed?reportId=dd28b683-5b6d-488d-9b47-12a8c7164f8a&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false",
+    BéniMellal_Kénifra: "https://app.powerbi.com/reportEmbed?reportId=19fd2d00-b386-443c-aba7-e068587fa960&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false",
+    Oriental: "https://app.powerbi.com/reportEmbed?reportId=586495a6-0b58-4c72-9619-f181ff6ee43d&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false",
+    Deraa_Tafilalt: "https://app.powerbi.com/reportEmbed?reportId=80783229-010b-48fd-a815-80693498c9a9&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false",
+    Tangier_Tetouan_Alhoseima: "https://app.powerbi.com/reportEmbed?reportId=d4b561c6-26b2-44c2-a205-e27bd8f3b103&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false",
+    Fes_Meknes: "https://app.powerbi.com/reportEmbed?reportId=739bcf0e-fd1b-4189-9c40-c1d5dff12362&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false",
+    Marrakech: "https://app.powerbi.com/reportEmbed?reportId=a444914a-d5ab-47b9-9ec2-4b212a6f2084&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false"
   };
   return uris[cityName] || '';
 };

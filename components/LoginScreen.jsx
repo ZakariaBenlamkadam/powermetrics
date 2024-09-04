@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Alert, Text, View, Image, ImageBackground, Modal, TouchableWithoutFeedback } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { ThemeContext } from '../src/contexts/ThemeContext'; // Import ThemeContext
+import { ThemeContext } from '../src/contexts/ThemeContext'; 
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const { t, i18n } = useTranslation();
-  const { theme, toggleTheme } = useContext(ThemeContext); // Get theme and toggle function from context
+  const { theme, toggleTheme } = useContext(ThemeContext); 
 
   const handleLogin = () => {
     if (username === '' || password === '') {
@@ -111,7 +111,7 @@ const LoginScreen = ({ navigation }) => {
             onChangeText={(text) => setPassword(text)}
           />
           <TouchableOpacity onPress={handleLogin} style={{backgroundColor: theme === 'light' ? '#28a745':'#265c66' , paddingVertical: 10,borderRadius: 5, alignItems: 'center',NmarginBottom: 20}}>
-            <Text style={{color: theme === 'light' ? 'white': '#aaa',fontWeight: 'bold',}}>{t('Log in')}</Text>
+            <Text style={{color: theme === 'light' ? 'white': '#bbb',fontWeight: 'bold',}}>{t('Log in')}</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>

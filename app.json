@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Al Omrane",
+    "name": "AlOmrane PowerMetrics",
     "slug": "omraneApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/al-omrane3.jpg",
+    "icon": "./assets/al-omrane3.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/al-omrane3.jpg",
+      "image": "./assets/al-omrane3.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,9 +19,8 @@
       "bundleIdentifier": "com.zakaria69.omraneApp"
     },
     "android": {
-      
       "adaptiveIcon": {
-        "foregroundImage": "./assets/al-omrane.png",
+        "foregroundImage": "./assets/al-omrane3.png",
         "backgroundColor": "#ffffff"
       },
       "config": {

@@ -10,14 +10,14 @@ import { ThemeContext } from '../src/contexts/ThemeContext'; // Import ThemeCont
 const { width, height } = Dimensions.get('window');
 
 const getTrendsWebViewUri = () => {
-  return "https://app.powerbi.com/reportEmbed?reportId=473eafc4-008a-4fe6-b297-868f837a4182&autoAuth=true&ctid=c2787922-11d9-4ca8-aadf-5ef7ff31a127&filterPaneEnabled=false";
+  return "https://app.powerbi.com/reportEmbed?reportId=48f3eeab-f182-4254-b69a-2365bcca3e6b&autoAuth=true&ctid=60320baf-1da5-4bdc-a22a-353634228897&filterPaneEnabled=false";
 };
 
 const Trends = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const webViewRef = useRef(null);
   const { t } = useTranslation();
-  const { theme } = useContext(ThemeContext); // Get the current theme from the context
+  const { theme } = useContext(ThemeContext); 
 
   const openModal = () => {
     setIsModalVisible(true);

@@ -25,6 +25,15 @@ const TabNavigator = () => {
       }}
     >
       <Tab.Screen 
+        name="Home" 
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="home" color={color} size={size} />
+          ),
+        }} 
+      />
+      <Tab.Screen 
         name="Map" 
         component={MyMapComponent}
         options={{

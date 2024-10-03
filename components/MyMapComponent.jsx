@@ -142,7 +142,7 @@ const MyMapComponent = () => {
                 key={subcity.id}
                 coordinate={{ latitude: subcity.latitude, longitude: subcity.longitude }}
                 title={subcity.name}
-                pinColor={decimalToHexColor(11206502)} // Example with decimal color 255 (0x0000FF)
+                pinColor={decimalToHexColor(995862)} // Example with decimal color 255 (0x0000FF)
                 onPress={() => {}} // Do nothing on subcity press
               />
             ))}

@@ -35,7 +35,25 @@ export const fr = {
     'It is better to rotate your phone for better visualization.': 'Il est préférable de faire tourner votre téléphone pour une meilleure visualisation.',
     'Please wait until the visualization appears, as it may take some time.' :'Veuillez patienter jusqu\'à ce que la visualisation apparaisse, car cela peut prendre un certain temps.',
     chooseLanguage: 'Choisir language',
-    'Invalid username or password.':'nom d\'utilisateur ou mot de passe invalide'
-};
+    'Invalid username or password.':'nom d\'utilisateur ou mot de passe invalide',
+    'Hello Zakaria': 'Bonjour Zakaria',
+    'Search': 'Recherche',
+    'Our branches': 'Nos branches',
+    'See all': 'Voir tout',
+    'Branches': 'Branches',
+    'Agencies': 'Agences',
+    'Explore': 'Explorer',
+    'Group Alomrane': 'Groupe Alomrane',
+    'Rabat Sale Kenitra': 'Rabat Sale Kénitra',
+    'Casablanca Settat': 'Casablanca Settat',
+    'Tanger Tetouan AlHoseima': 'Tanger Tétouan Al Hoceima',
+    'L Oriental': 'L\'Oriental',
+    'Fes Meknes': 'Fès Meknès',
+    'AlJanoub': 'AlJanoub',
+    'Deraa Tafilalt': 'Drâa Tafilalt',
+    'Sous Massa': 'Sous Massa',
+    'Marrakech Safi': 'Marrakech Safi',
+    'BenniMellal Khenifra': 'Beni Mellal Khénifra',
+    };
 
  
